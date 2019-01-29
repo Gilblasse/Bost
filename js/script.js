@@ -111,7 +111,7 @@ function lightBox() {
 
             let imgUrl = imgArry.eq(i).css('background').split(' ')[4];
 
-            let imgSrcArry = imgUrl.split('/')[4].split('');
+            let imgSrcArry = imgUrl.split('/')[5].split('');
             let imgSrc = imgSrcArry.splice(0,imgSrcArry.length - 2).join('');
 
              imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
@@ -119,7 +119,7 @@ function lightBox() {
             console.log('Url Arry = ' + imgArry.eq(i).css('background').split(' '));
             console.log('Split UrlArry to make ImgUrl = '+imgUrl.split('/'))
             console.log('ImgUrl: '+ imgUrl);
-            console.log('imgSrcArry: '+imgSrcArry);
+            console.log('imgSrcArry:[4] '+imgSrcArry);
             console.log('imgSrc: '+imgSrc);
 
             imgBox.prependTo('body');
@@ -146,7 +146,7 @@ function lightBox() {
                    
                     if(imgArry.length !== imgId){
                       let nextBkgArry =  nextUrl.css('background').split(' ')[4];
-                      let nextSrcArry = nextBkgArry.split('/')[4].split('');
+                      let nextSrcArry = nextBkgArry.split('/')[5].split('');
                       let nextsrc = 'imgs/' + nextSrcArry.splice(0,nextSrcArry.length - 2).join('');
 
                         
@@ -163,7 +163,7 @@ function lightBox() {
                         imgId-=imgArry.length;
                         let nextfunc = imgArry.eq(imgId += 0);
                         let nBkgArry =  nextfunc.css('background').split(' ')[4];
-                        let nSrcArry = nBkgArry.split('/')[4].split('');
+                        let nSrcArry = nBkgArry.split('/')[5].split('');
                         let nextsrc = 'imgs/' + nSrcArry.splice(0,nSrcArry.length - 2).join('');
                         
                         // console.log('NEWID# '+imgId + ' ' +nextsrc);
@@ -187,7 +187,7 @@ function lightBox() {
                 //    console.log(imgArry.length + ' ' +imgId);
                     if(-1 < imgId){
                       let prevBkgArry =  prevUrl.css('background').split(' ')[4];
-                      let prevSrcArry = prevBkgArry.split('/')[4].split('');
+                      let prevSrcArry = prevBkgArry.split('/')[5].split('');
                       let prevsrc = 'imgs/' + prevSrcArry.splice(0,prevSrcArry.length - 2).join('');
 
                     //   console.log('image ID# '+imgId);
@@ -205,7 +205,7 @@ function lightBox() {
                         
                         let preUrl = imgArry.eq(imgId -= 0);
                         let preBkgArry =  preUrl.css('background').split(' ')[4];
-                        let preSrcArry = preBkgArry.split('/')[4].split('');
+                        let preSrcArry = preBkgArry.split('/')[5].split('');
                         let prvsrc = 'imgs/' + preSrcArry.splice(0,preSrcArry.length - 2).join('');
 
                         // console.log('NEWID# '+imgId);
