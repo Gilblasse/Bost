@@ -80,8 +80,8 @@ function lightBox() {
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
-        'width':'40px',
-        'height':'40px',
+        'width':'2.5rem',
+        'height':'2.5rem',
         'borderRadius':'50%',
         'fontSize':'calc(var(--main-font-size) * 2)',
         'textAlign':'center',
@@ -115,7 +115,11 @@ function lightBox() {
             let imgSrc = imgSrcArry.splice(0,imgSrcArry.length - 2).join('');
 
              imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
-            
+
+            console.log('ImgUrl '+ imgUrl);
+            console.log('imgSrcArry '+imgSrcArry);
+            console.log('imgSrc '+imgSrc);
+
             imgBox.prependTo('body');
             imgBox.prepend(imgContainer);
             imgContainer.prepend(imgHtml);
@@ -125,6 +129,7 @@ function lightBox() {
             // console.log('gallery section');
 
                 imgId = i;
+                console.log('imgId '+imgId);
                 
 
                 $('#imageTag').on('click',function(e){
