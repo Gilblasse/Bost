@@ -1,0 +1,34 @@
+
+/*  ======================
+        MAIN CONTENT
+    ======================
+*/
+
+/*ABOUT ME SECTION*/
+
+    .title-square {
+        height: 23.8rem;
+        background-color: var(--primary-color);
+    }
+
+    .profile-pic {
+        width: 18rem;
+        height: 16rem;
+    }
+
+    .title-square-heading,
+    .gallery-title h3 {
+        color: #fff;
+        font-size: 1.5rem;
+        letter-spacing: .1rem;
+        border-bottom: .15rem solid #fff;
+        /* font-family: 'Aleo', serif; */
+        padding-bottom: .3rem;
+    }
+
+
+    .about-me-text,
+    .services-message {
+        line-height: 2.5;
+        font-size: 1rem;
+    }
