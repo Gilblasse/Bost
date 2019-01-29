@@ -116,9 +116,11 @@ function lightBox() {
 
              imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
 
-            console.log('ImgUrl '+ imgUrl);
-            console.log('imgSrcArry '+imgSrcArry);
-            console.log('imgSrc '+imgSrc);
+            console.log('Url Arry = ' + imgArry.eq(i).css('background').split(' '));
+            console.log('Split UrlArry to make ImgUrl = '+imgUrl.split('/'))
+            console.log('ImgUrl: '+ imgUrl);
+            console.log('imgSrcArry: '+imgSrcArry);
+            console.log('imgSrc: '+imgSrc);
 
             imgBox.prependTo('body');
             imgBox.prepend(imgContainer);
