@@ -76,12 +76,12 @@ function toggleMenu () {
 function lightBox() {
     const btnStyles = {
         'position': 'relative',
-        'padding':'20px',  
+        'padding':'.8rem',  
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
-        'width':'40px',
-        'height':'40px',
+        'width':'3rem',
+        'height':'3rem',
         'borderRadius':'50%',
         'fontSize':'calc(var(--main-font-size) * 2)',
         'textAlign':'center',
