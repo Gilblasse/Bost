@@ -76,7 +76,7 @@ function toggleMenu () {
 function lightBox() {
     const btnStyles = {
         'position': 'relative',
-        'padding':'calc(var(--main-font-size) * 1.2)',  
+        'padding':'20px',  
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
