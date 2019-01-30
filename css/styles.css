@@ -216,11 +216,11 @@ footer .nav-link:hover {
 
 .fa-chevron-left,.fa-chevron-right{
     position: absolute;
-    top:20%;
+    top:15%;
 }
     .fa-chevron-left {
-        left:27%;
+        left:25%;
     }
     .fa-chevron-right{
-        right:27%;
+        right:25%;
     }
