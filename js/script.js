@@ -114,13 +114,7 @@ function lightBox() {
             let imgSrcArry = imgUrl.split('/')[5].split('');
             let imgSrc = imgSrcArry.splice(0,imgSrcArry.length - 2).join('');
 
-             imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
-
-            console.log('Url Arry = ' + imgArry.eq(i).css('background').split(' '));
-            console.log('Split UrlArry to make ImgUrl = '+imgUrl.split('/'))
-            console.log('ImgUrl: '+ imgUrl);
-            console.log('imgSrcArry:[4] '+imgSrcArry);
-            console.log('imgSrc: '+imgSrc);
+            imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
 
             imgBox.prependTo('body');
             imgBox.prepend(imgContainer);
