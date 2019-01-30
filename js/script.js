@@ -76,7 +76,7 @@ function toggleMenu () {
 function lightBox() {
     const btnStyles = {
         'position': 'relative',
-        'padding':'20px',  
+        'padding':'7vmin',  
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
@@ -89,7 +89,6 @@ function lightBox() {
         'justifySelf': 'center',
         'margin':'0 50px',
         'transition': 'all 400ms ease-in-out'
-        
     }
    
     const imgBox = $('<div class="img-box"></div>');
