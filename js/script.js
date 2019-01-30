@@ -76,12 +76,12 @@ function toggleMenu () {
 function lightBox() {
     const btnStyles = {
         'position': 'relative',
-        'padding':'calc(var(--main-font-size) * 2)',  
+        'padding':'calc(var(--main-font-size) * 2.1)',  
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
-        'width':'calc(var(--main-font-size) * 5)',
-        'height':'calc(var(--main-font-size) * 5)',
+        'width':'calc(var(--main-font-size) * 2.1)',
+        'height':'calc(var(--main-font-size) * 2.1)',
         'borderRadius':'50%',
         'fontSize':'calc(var(--main-font-size) * 2)',
         'textAlign':'center',
