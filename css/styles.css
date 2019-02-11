@@ -1,12 +1,11 @@
 :root {
-    --main-font-size: 1.11vw;
+    --main-font-size: 1.21vw;
     --primary-color: #4D0F84;
     --secondary-color: #E067B2;
     --service-imgs-w: 8.75rem;
     --service-imgs-h: 11.875rem;
     --log-width: 11.25rem;
 }
-
 * {
     padding: 0;
     margin: 0;
@@ -132,9 +131,8 @@ footer .nav-link:hover {
     color:var(--secondary-color);
 }
 .footer-logo img{
-    width:12vw;
+    width:var(--service-imgs-w);
 }
-
 /* Icons */
 .contact-info i {
    padding: 0 .2rem;

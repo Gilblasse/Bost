@@ -1,0 +1,181 @@
+
+/* ==============================================
+                     MEDIA QUERIES
+   ==============================================
+*/
+
+
+
+@media screen and  (min-width: 1200px) {
+    .footerImg1{
+        display: none;
+    }
+}
+@media screen and  (max-width: 1200px) {
+    .footerImg1{
+        display: none;
+    }
+    .about-me-text p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media screen and  (max-width: 1066px) {
+    :root {
+        --main-font-size: 1.41vw;
+    }
+    .footerImg1{
+        display: none;
+    }
+    .about-me-text p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media screen and (max-width:932px) {
+    :root {
+        --main-font-size: 1.67vw;
+    }
+    .about-me-text p, .services-message{
+        font-size: calc(var(--main-font-size) / 1.1) !important;
+    }
+    .about-me-text p {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .profile-pic {
+        width: 18rem !important;
+        height: 16rem !important;
+    }
+    .title-square {
+        height: 23.8rem !important;
+    }
+
+    .footerImg1{
+        display: none;
+    }
+    #footer a{
+        font-size: .8rem !important;
+        margin-left: .5rem;
+        margin-right: .5rem; 
+    }
+}
+@media screen and (max-width: 768px) {
+    :root {
+        --main-font-size: 2vw;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    .logo {
+        margin-left:4rem !important; 
+    }
+
+    #navBar {
+        padding-left:1rem !important;
+        padding-right: 1rem !important;
+    }
+    .about-me-text p, .services-message{
+        font-size: calc(var(--main-font-size) * 1.2) !important;
+    }
+    .about-me-text p:first-child{
+        padding-top: 5rem;
+    }
+    .about-me-text p{
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    .profile-pic {
+        width: 20rem !important;
+        height: 18rem !important;
+    }
+    .title-square, .gallery-title  {
+        height: 24.8rem !important;
+    }
+    
+    .cir-1{
+        padding-right:40.5% !important;
+    }
+    .cir-3{
+        padding-left:40.5% !important;
+    }
+    .cir-2{
+        margin:50px 0;
+    }
+    .footerImg1{
+        display: block;
+    }
+    
+    #footer a{
+        font-size: 1.5rem !important;
+        margin-left: .5rem;
+        margin-right: .5rem; 
+    }
+    .footer-menu, .footerImg2{
+        display: none;
+    }
+
+    #imageTag {
+        margin-top:35vh;
+    }
+    .gallery-title {
+        grid-row: 1;
+        grid-column: 1/13;
+        height: 30vh;
+    }
+    .grid-wrapper {
+        grid-row: 4;
+        grid-column: 1/13;
+    } 
+}
+
+  @media screen and (max-width:576px) {
+    :root {
+        --main-font-size: 2.51vw;
+        --log-width: 11.25rem;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    .logo {
+        margin-left: 0 !important;                                                                                                                                                                                                                                                                                                                                                                           
+    }
+
+    #navBar {
+        padding-left:1rem !important;
+        padding-right: 0 !important;
+    }
+
+    .about-me-text p:first-child {
+        font-size: calc(var(--main-font-size) * 1.2) !important;
+        padding-top: 5rem;
+    }
+    
+    .cir-1{
+        padding-right:40% !important;
+    }
+    .cir-3{
+        padding-left:40% !important;
+    }
+    .cir-2{
+        margin:50px 0;
+    }
+    
+    .footer-menu, .footerImg2{
+        display: none;
+    }
+
+    #imageTag {
+        /* max-height: 70vh; */
+        margin-top:35vh;
+    }
+    .gallery-title {
+        grid-row: 1;
+        grid-column: 1/13;
+        height: 30vh;
+    }
+    .grid-wrapper {
+        grid-row: 4;
+        grid-column: 1/13;
+    } 
+}

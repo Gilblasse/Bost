@@ -124,7 +124,7 @@ function lightBox() {
             // console.log('gallery section');
 
                 imgId = i;
-                console.log('imgId '+imgId);
+                // console.log('imgId '+imgId);
                 
 
                 $('#imageTag').on('click',function(e){
