@@ -103,7 +103,7 @@
         margin:50px 0;
     }
     .footerImg1{
-        display: none;
+        display: block;
     }
     
     #footer a{
@@ -161,11 +161,8 @@
         margin:50px 0;
     }
     
-    .footer-menu{
+    .footer-menu,.footerImg2{
         display: none;
-    }
-    .footerImg2{
-      display: block;
     }
 
     #imageTag {
