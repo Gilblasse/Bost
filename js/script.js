@@ -23,14 +23,14 @@ function buildMenu() {
     for (let item of items){
         let nav = `
             <li>
-                <a href="#${item}"> 
-                    ${item} 
+                <a href="#${item}">
+                    ${item}
                 </a>
             </li>
         ,`;
         navItems += nav;
     }
-    
+
     let splitItemsArry = navItems.split(',');
     let fixArry = splitItemsArry.splice(0,splitItemsArry.length-1);
 
@@ -39,13 +39,11 @@ function buildMenu() {
     };
 }
 
-function toggleMenu () {   
+function toggleMenu () {
    const initMenu = {
     closeMenu: function(){
-        $('#menuItems').removeClass('show').addClass('hide'); 
+        $('#menuItems').removeClass('show').addClass('hide');
         $('#menuItems').attr('data-hidden','true');
-        // console.log('hide');
-        
         }
     };
 
@@ -56,15 +54,13 @@ function toggleMenu () {
                 $('#menuItems').removeClass('hide').addClass('show');
                 $('#menuItems').attr('data-hidden','false');
                 anchorScroll();
-                // console.log('toggle state show');
             }
             const hideMenu = function(){
-                $('#menuItems').removeClass('show').addClass('hide'); 
+                $('#menuItems').removeClass('show').addClass('hide');
                 $('#menuItems').attr('data-hidden','true');
-                // console.log('toggle state hidemenu');
             }
             e.stopPropagation();
-            
+
             toggleState == 'true' ? showMenu() : hideMenu();
 
     }
@@ -76,7 +72,7 @@ function toggleMenu () {
 function lightBox() {
     const btnStyles = {
         'position': 'relative',
-        'padding':'.8rem',  
+        'padding':'.8rem',
         'backgroundColor':'var(--secondary-color)',
         'color':'#fff',
         'border':'none',
@@ -90,7 +86,8 @@ function lightBox() {
         'margin':'0 50px',
         'transition': 'all 400ms ease-in-out'
     }
-   
+
+    const additionalImages = ['banquet.JPG','events2luv-team.jpg','banquet_menu.JPG','banquet_table.JPG','events2luv-favors.JPG','banquet_table3.JPG']
     const imgBox = $('<div class="img-box"></div>');
     const imgContainer = $('<div class="lightbox-container"></div>');
     const nextImgBtn = $('<button id="nextImg"><i class="fas fa-chevron-right"></i></button>').css(btnStyles);
@@ -98,181 +95,145 @@ function lightBox() {
     let imgHtml = '';
     let imgId = null;
 
-   const imgArry = $('.grid-wrapper > .image');
-
+   let imgArry = $('.grid-wrapper > .image')
 
     for(let i=0; i < imgArry.length; i++) {
 
         // OPEN LIGHTBOX
         imgArry.eq(i).on('click', function (e) { // Gallery Imaged Clicked .active-img
             e.stopPropagation();
-            imgArry.eq(i).addClass('active-img');
+            let imgSrc = imgArry[0]
 
-            let imgUrl = imgArry.eq(i).css('background').split(' ')[4];
-
-            let imgSrcArry = imgUrl.split('/')[4].split('');
-            let imgSrc = imgSrcArry.splice(0,imgSrcArry.length - 2).join('');
+            if(typeof imgArry[0] === 'object') {
+                imgArry.eq(i).addClass('active-img');
+                const imgUrl = imgArry.eq(i).css('background').split(' ')[4];
+                const imgSrcArry = imgUrl.split('/')[4].split('');
+                imgSrc = imgSrcArry.splice(0,imgSrcArry.length - 2).join('');
+            }
 
             imgHtml = $(`<img src="imgs/${imgSrc}" alt="image slide" id="imageTag" class="img-thumbnail">`);
+            imgArry = $($.unique([...imgArry, ...additionalImages]))
 
             imgBox.prependTo('body');
             imgBox.prepend(imgContainer);
             imgContainer.prepend(imgHtml);
             $('.lightbox-container').after(nextImgBtn);
             $('.lightbox-container').before(prevImgBtn);
-            // $('html').css('overflowY','hidden');
-            // console.log('gallery section');
-
                 imgId = i;
-                // console.log('imgId '+imgId);
-                
-
                 $('#imageTag').on('click',function(e){
                     e.stopPropagation();
-                    // console.log('ImageTag');
                 });
 
                 // NEXT BTN
                 $('#nextImg').on('click',function(e){
                     e.stopPropagation();
-                    let nextUrl = imgArry.eq(imgId += 1);
-                   
-                    if(imgArry.length !== imgId){
-                      let nextBkgArry =  nextUrl.css('background').split(' ')[4];
-                      let nextSrcArry = nextBkgArry.split('/')[4].split('');
-                      let nextsrc = 'imgs/' + nextSrcArry.splice(0,nextSrcArry.length - 2).join('');
+                    imgId += 1
+                    let nextUrl = imgArry.eq(imgId);
 
-                        
+                    if(imgArry.length !== imgId){
+                        let nextImgSrc = nextUrl[0]
+                        if(typeof nextUrl[0] === 'object') {
+                            const nextBkgArry =  nextUrl.css('background').split(' ')[4];
+                            const nextSrcArry = nextBkgArry.split('/')[4].split('');
+                            nextImgSrc = nextSrcArry.splice(0,nextSrcArry.length - 2).join('')
+                        }
+                      let nextsrc = 'imgs/' + nextImgSrc;
+
+
                       $('#imageTag').fadeOut(500,'linear',function(){
                         for(let i=0; i < imgArry.length; i++) {
                             imgArry.eq(i).removeClass('active-img');
                             }
-                            nextUrl.addClass('active-img');
+                            typeof nextUrl[0] === 'object' && nextUrl.addClass('active-img');
                         $(this).attr('src',nextsrc).fadeIn(1000,'linear');
                       })
 
                     }else{
-                        let nextReset = imgArry.eq(imgId-=imgArry.length);
-                        imgId-=imgArry.length;
-                        let nextfunc = imgArry.eq(imgId += 0);
-                        let nBkgArry =  nextfunc.css('background').split(' ')[4];
-                        let nSrcArry = nBkgArry.split('/')[4].split('');
-                        let nextsrc = 'imgs/' + nSrcArry.splice(0,nSrcArry.length - 2).join('');
-                        
-                        // console.log('NEWID# '+imgId + ' ' +nextsrc);
+                        imgId=0
+                        // let nextReset = imgArry.eq(imgId);
+                        let nextfunc = imgArry.eq(imgId);
+                        let nImgSrc = nextfunc[0]
+                        if(typeof nextfunc[0] === 'object') {
+                            let nBkgArry =  nextfunc.css('background').split(' ')[4];
+                            let nSrcArry = nBkgArry.split('/')[4].split('');
+                            nImgSrc =  nSrcArry.splice(0,nSrcArry.length - 2).join('');
+                        }
+                        let nextsrc = 'imgs/' + nImgSrc;
+
                         $('#imageTag').fadeOut(500,'linear',function(){
                             for(let i=0; i < imgArry.length; i++) {
-                                imgArry.eq(i).removeClass('active-img');
+                                typeof imgArry.eq(i)[0] === 'object' && imgArry.eq(i).removeClass('active-img');
                                 }
-                                nextReset.addClass('active-img');
+                                typeof nextfunc[0] === 'object' && nextfunc.addClass('active-img');
                             $(this).attr('src',nextsrc).fadeIn(1000,'linear');
                           })
 
 
                     }
-                    
                 });
 
                 // PREVIOUS BTN
                 $('#prevImg').on('click',function(e){
                     e.stopPropagation();
-                    let prevUrl = imgArry.eq(imgId -= 1);
-                //    console.log(imgArry.length + ' ' +imgId);
+                    imgId -= 1
+                    let prevUrl = imgArry.eq(imgId);
                     if(-1 < imgId){
-                      let prevBkgArry =  prevUrl.css('background').split(' ')[4];
-                      let prevSrcArry = prevBkgArry.split('/')[4].split('');
-                      let prevsrc = 'imgs/' + prevSrcArry.splice(0,prevSrcArry.length - 2).join('');
+                        let prvSrc = prevUrl[0]
+                        if(typeof prevUrl[0] === 'object') {
+                            let prevBkgArry =  prevUrl.css('background').split(' ')[4];
+                            let prevSrcArry = prevBkgArry.split('/')[4].split('');
+                            prvSrc = prevSrcArry.splice(0,prevSrcArry.length - 2).join('');
+                        }
+                      let prevsrc = 'imgs/' + prvSrc;
 
-                    //   console.log('image ID# '+imgId);
                     $('#imageTag').fadeOut(500,'linear',function(){
                         for(let i=0; i < imgArry.length; i++) {
-                            imgArry.eq(i).removeClass('active-img');
+                            typeof imgArry.eq(i)[0] === 'object' && imgArry.eq(i).removeClass('active-img');
                             }
-                            prevUrl.addClass('active-img');
+                            typeof prevUrl[0] === 'object' && prevUrl.addClass('active-img');
                         $(this).attr('src',prevsrc).fadeIn(1000,'linear');
                       })
 
                     }else{
-                        let prevReset = imgArry.eq(imgId = imgArry.length-1);
                         imgId = imgArry.length-1;
-                        
-                        let preUrl = imgArry.eq(imgId -= 0);
-                        let preBkgArry =  preUrl.css('background').split(' ')[4];
-                        let preSrcArry = preBkgArry.split('/')[4].split('');
-                        let prvsrc = 'imgs/' + preSrcArry.splice(0,preSrcArry.length - 2).join('');
+                        let preUrl = imgArry.eq(imgId);
+                        let presrc = preUrl[0]
+                        if(typeof preUrl[0] === 'object') {
+                            let preBkgArry =  preUrl.css('background').split(' ')[4];
+                            let preSrcArry = preBkgArry.split('/')[4].split('');
+                            presrc = preSrcArry.splice(0,preSrcArry.length - 2).join('');
+                        }
+                        let prvsrc = 'imgs/' + presrc;
 
-                        // console.log('NEWID# '+imgId);
                         $('#imageTag').fadeOut(500,'linear',function(){
                             for(let i=0; i < imgArry.length; i++) {
-                                imgArry.eq(i).removeClass('active-img');
+                                typeof imgArry.eq(i)[0] === 'object' && imgArry.eq(i).removeClass('active-img');
                                 }
-                                prevUrl.addClass('active-img');
+                                typeof preUrl[0] === 'object' && preUrl.addClass('active-img');
                             $(this).attr('src',prvsrc).fadeIn(1000,'linear');
                           })
                     }
 
-                    
-                    
                 });
         });
     }
 
 
-    $('body').on('click', function () { 
+    $('body').on('click', function () {
         for(let i=0; i < imgArry.length; i++) {
         imgArry.eq(i).removeClass('active-img');
         }
-        // $('html').css('overflowY','scroll');
         $('.lightbox-container').empty().remove();
         $('.img-box').empty().remove();
-        
+
     });
 
 };
 
-// function logo(){
-//     $(window).on('scroll',function(){
-//        let scrollHeight = Math.floor($(window).scrollTop());
-
-//         if(scrollHeight >= 50){
-//             $('.logo').css({
-//                 'width':'calc(var(--log-width) * 1.2)',
-//                 'transition':'width 1s ease-in-out',
-//             });
-//             // $('#menu-toggler').css({
-//             //     'fontSize':'calc(var(--log-width) / 5.5)',
-//             //     'transition':'all 1s ease-in-out',
-//             // });
-//             $('#navBar').css({
-//                 'padding':'calc(var(--log-width) / 3) 0',
-//                 'transition':'all 1s ease-in-out',
-//             });
-//             $('.show').css({        
-//                 'transform':'translateY(8rem)',
-//                 'transition':'all 1s ease-in-out',
-//             });
-            
-//         }else{
-//             $('.logo').css({
-//                 'width':'var(--log-width)',
-//                 'transition':'width 1s ease-in-out',
-//             });
-//             $('.show').css({        
-//                 'transform':'translateY(5rem)',
-//                 'transition':'all 1s ease-in-out',
-//             });
-//             $('#navBar').css({
-//                 'padding':'0 0 0 0',
-//                 'transition':'all 1s ease-in-out',
-//             });
-//         }
-//     })
-// }
 
 function anchorScroll(){
     $('a[href^="#"]').on('click',function(e){
         e.preventDefault();
-        console.log('function Ran');
         let target = this.hash;
         let $target = $(target);
 
@@ -286,8 +247,8 @@ function anchorScroll(){
 
 // Initializes functions when DOM is ready.
 $(document).ready(function(){
-    
-    initFn = {
+
+    const initFn = {
         scroll:anchorScroll(),
         lightBox:lightBox(),
         imgHover:serviceImgHover(),
