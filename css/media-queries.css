@@ -57,7 +57,7 @@
     #footer a{
         font-size: .8rem !important;
         margin-left: .5rem;
-        margin-right: .5rem; 
+        margin-right: .5rem;
     }
 }
 @media screen and (max-width: 768px) {
@@ -68,7 +68,7 @@
         overflow-x: hidden;
     }
     .logo {
-        margin-left:4rem !important; 
+        margin-left:4rem !important;
     }
 
     #navBar {
@@ -81,18 +81,27 @@
     .about-me-text p:first-child{
         padding-top: 5rem;
     }
-    .about-me-text p{
+    #aboutMe .row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #aboutMe .row .col-md-6{
+        flex: 0 0 100% ;
+        max-width: 100%;
+    }
+    /* .about-me-text p{
         padding-left: 3rem;
         padding-right: 3rem;
-    }
-    .profile-pic {
+    } */
+    /* .profile-pic {
         width: 20rem !important;
         height: 18rem !important;
-    }
+    } */
     .title-square, .gallery-title  {
         height: 24.8rem !important;
     }
-    
+
     .cir-1{
         padding-right:40.5% !important;
     }
@@ -105,11 +114,11 @@
     .footerImg1{
         display: block;
     }
-    
+
     #footer a{
         font-size: 1.5rem !important;
         margin-left: .5rem;
-        margin-right: .5rem; 
+        margin-right: .5rem;
     }
     .footer-menu, .footerImg2{
         display: none;
@@ -126,8 +135,9 @@
     .grid-wrapper {
         grid-row: 4;
         grid-column: 1/13;
-    } 
+    }
 }
+
 
   @media screen and (max-width:576px) {
     :root {
@@ -138,7 +148,7 @@
         overflow-x: hidden;
     }
     .logo {
-        margin-left: 0 !important;                                                                                                                                                                                                                                                                                                                                                                           
+        margin-left: 0 !important;
     }
 
     #navBar {
@@ -150,7 +160,7 @@
         font-size: calc(var(--main-font-size) * 1.2) !important;
         padding-top: 5rem;
     }
-    
+
     .cir-1{
         padding-right:40% !important;
     }
@@ -160,7 +170,7 @@
     .cir-2{
         margin:50px 0;
     }
-    
+
     .footer-menu,.footerImg2{
         display: none;
     }
@@ -177,5 +187,5 @@
     .grid-wrapper {
         grid-row: 4;
         grid-column: 1/13;
-    } 
+    }
 }
