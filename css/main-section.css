@@ -6,14 +6,18 @@
 
 /*ABOUT ME SECTION*/
 
+    .aboutMe .row {
+        padding: 0 3rem;
+    }
+
     .title-square {
         height: 23.8rem;
         background-color: var(--primary-color);
     }
 
     .profile-pic {
-        width: 18rem;
-        height: 16rem;
+        width: 17rem;
+        height: 17rem;
     }
 
     .title-square-heading,
